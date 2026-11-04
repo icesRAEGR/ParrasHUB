@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stylo.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <title>Gamez</title>
+</head>
+<body>
+    <header class="main-header">
+        <a class="main-logo" href="/ParrasHUB/index.php">
+            <img src="img/logocircular.png" alt="Logo de la empresa">
+        </a>
+        <nav class="nav-links">
+            <a class="link-item" href="html/campechanas.html">Campechanas</a>
+            <a class="link-item" href="html/PAN.html">Pan</a>
+            <a class="link-item" href="/ParrasHUB/gamez/html/Dulces Regionales.php">Dulces Regionales</a>
+        </nav>
+        <button id="button-menu" class="button-menu" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <main class="container">
+        <section class="product">
+            <a href="/ParrasHUB/gamez/html/Información.html">
+                <img src="img/logosinfondo.png" alt="Acceso administrador">
+            </a>
+            <p>¿Sobre Nosotros?</p>
+        </section>
+        
+        <section class="product">
+            <img src="img/logosinfondo.png" alt="Chatbot de ayuda">
+            <!-- chatbot -->
+            <button id="help-button" aria-label="Abrir chatbot de ayuda">Ayuda</button>
+            <div id="chat-container" class="hidden">
+                <div id="chat-box"></div>
+                <div id="options">
+                    <button onclick="sendMessage('¿Cuáles son los precios?')">¿Cuáles son los precios?</button>
+                    <button onclick="sendMessage('¿Hacen envíos a domicilio?')">¿Hacen envíos a domicilio?</button>
+                    <button onclick="sendMessage('¿Cuáles son los horarios de atención?')">¿Cuáles son los horarios de atención?</button>
+                    <button onclick="sendMessage('¿Cuál es su contacto?')">¿Quieres hablar directamente con nosotros?</button>
+                </div>
+            </div>            
+        </section>
+    </main>
+
+    <footer>
+        <div class="copy">
+            <p>Nuestro negocio esta dedicado a la venta de campechanas, dulces regionales y pan dulce, 
+                con la mejor calidad para nuestros clientes, esperamos su visita en nuestro horario de venta.</p>
+        </div>
+        <div class="redes">
+            <a href="https://www.facebook.com/share/1BFsLHPNRc/">
+                <img src="/ParrasHUB/gamez/img/facebook.png" alt=""><p>Facebook</p>
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=8421122636">
+                <img src="/ParrasHUB/gamez/img/whatsapp.png" alt=""><p>WhatsApp</p>
+            </a>
+        </div>
+        <div class="informacion">
+            <p>&copy; 2025 Todos los derechos reservados</p>
+            <a href="/ParrasHUB/gamez/html/Información.html">Más información</a>
+        </div>
+    </footer>
+    <script src="js/hamburguesa.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html>

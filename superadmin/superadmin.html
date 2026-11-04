@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superadmin</title>
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/css/esqueleto.css">
+    <link rel="stylesheet" href="/superadmin/superadmin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container-navbar">
+            <nav class="navbar container">
+                <i class="fa-solid fa-bars"></i>
+                <ul class="menu">
+                    <li><a href="/Index.php">ParrasHUB</a></li>
+                </ul>
+                <ul>Superadmin</ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Menú lateral navegable -->
+    <nav class="navegacionherramientas">
+        <ul class="herramientas">
+            <li id="btn-dashboard">Dashboard</li>
+            <li class="opcion-menu">Arrendadores</li>
+            <li class="opcion-menu">Clientes</li>
+            <li class="opcion-menu">Negocios</li>
+            <li class="opcion-menu">Servicios</li>
+            <li class="opcion-menu">Categorias</li>
+            <li class="opcion-menu">Publicaciones</li>
+            <li class="opcion-menu">Incidencias</li>
+            <li class="opcion-menu">Configuracion</li>
+        </ul>
+    </nav>
+
+    <!-- Contenedor principal -->
+    <article class="contenido-principal">
+    <!-- Sección de Resumen -->
+    <div class="resumen" id="seccion-resumen">
+    <!-- Cajas de Usuarios por Estado -->
+    <div class="cajas">
+            <h4>Usuarios</h4>
+            <ul class="lista-resumen">
+                <li><span>Activos:</span> <strong><?php echo $totalUsuariosActivos; ?></strong></li>
+                <li><span>Pendientes:</span> <strong><?php echo $totalUsuariosPendientes; ?></strong></li>
+                <li><span>Suspendidos:</span> <strong><?php echo $totalUsuariosSuspendidos; ?></strong></li>
+            </ul>
+        </div>
+
+        <!-- Cajas de Negocios por Estado -->
+        <div class="cajas">
+            <h4>Negocios</h4>
+            <ul class="lista-resumen">
+                <li><span>Activos:</span> <strong><?php echo $totalNegociosActivos; ?></strong></li>
+                <li><span>Pendientes:</span> <strong><?php echo $totalNegociosPendientes; ?></strong></li>
+                <li><span>Suspendidos:</span> <strong><?php echo $totalNegociosSuspendidos; ?></strong></li>
+            </ul>
+        </div>
+
+        <!-- Caja de Pendientes y Estado del Servicio solicitado -->
+        <div class="cajas">
+            <h4>Servicios Pendientes</h4>
+            <ul class="lista-resumen">
+                <!-- Ejemplo iterando servicios pendientes con su estado -->
+                <?php foreach($serviciosPendientes as $servicio): ?>
+                    <li>
+                        <span><?php echo $servicio['nombre_servicio']; ?>:</span> 
+                        <strong class="tag-estado"><?php echo $servicio['estado_servicio']; ?></strong>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Negocios por Categoría -->
+        <div class="categoria-grafica" id="seccion-grafica">
+            <h4>Negocios por Categoría</h4>
+            
+            <div class="barra-item">
+                <span class="categoria-nombre">Hoteles</span>
+                <div class="barra-contenedor">
+                    <!-- Se ajusta la anchura mediante style="width: XX%" -->
+                    <div class="barra-progreso" style="width: 85%;"></div>
+                </div>
+                <span class="categoria-valor">25</span>
+            </div>
+
+            <div class="barra-item">
+                <span class="categoria-nombre">Restaurantes</span>
+                <div class="barra-contenedor">
+                    <div class="barra-progreso" style="width: 65%;"></div>
+                </div>
+                <span class="categoria-valor">18</span>
+            </div>
+
+            <div class="barra-item">
+                <span class="categoria-nombre">Turismo</span>
+                <div class="barra-contenedor">
+                    <div class="barra-progreso" style="width: 45%;"></div>
+                </div>
+                <span class="categoria-valor">12</span>
+            </div>
+
+            <div class="barra-item">
+                <span class="categoria-nombre">Tiendas</span>
+                <div class="barra-contenedor">
+                    <div class="barra-progreso" style="width: 30%;"></div>
+                </div>
+                <span class="categoria-valor">8</span>
+            </div>
+
+            <div class="barra-item">
+                <span class="categoria-nombre">Servicios</span>
+                <div class="barra-contenedor">
+                    <div class="barra-progreso" style="width: 18%;"></div>
+                </div>
+                <span class="categoria-valor">5</span>
+            </div>
+        </div>
+
+        <!-- NUEVA SECCIÓN: ARRENDADORES (Oculta por defecto) -->
+        <div class="seccion-arrendadores oculto" id="seccion-arrendadores">
+            <h4>Gestión de Arrendadores</h4>
+            
+            <!-- Resumen rápido de arrendadores -->
+            <div class="arrendadores-stats">
+                <div class="caja-stat">
+                    <span>Total Arrendadores</span>
+                    <strong><?php echo $totalArrendadores ?? '15'; ?></strong>
+                </div>
+                <div class="caja-stat">
+                    <span>Solicitudes Nuevas</span>
+                    <strong class="alerta-num"><?php echo $totalSolicitudesArrendador ?? '3'; ?></strong>
+                </div>
+            </div>
+
+            <!-- Tabla o lista de Arrendadores Registrados -->
+            <h5>Listado de Arrendadores Activos</h5>
+            <div class="tabla-contenedor">
+                <table class="tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>Arrendador</th>
+                            <th>Negocios</th>
+                            <th>Tipo de Negocio</th>
+                            <th>Ticket Solicitud Trabajo</th>
+                            <th>Estado de Pago</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Ejemplo estático / Dinámico con PHP -->
+                        <tr>
+                            <td><strong>Jorge</strong></td>
+                            <td>2</td>
+                            <td>Hotel / Restaurante</td>
+                            <td><span class="tag-ticket">#TK-4021</span></td>
+                            <td><span class="badge pago-al-corriente">Al corriente</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>María López</strong></td>
+                            <td>1</td>
+                            <td>Turismo</td>
+                            <td><span class="tag-ticket">#TK-4025</span></td>
+                            <td><span class="badge pago-pendiente">Pendiente</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Solicitudes de Nuevos Arrendadores -->
+            <h5 class="mt-20">Solicitudes de Nuevos Arrendadores</h5>
+            <div class="tabla-contenedor">
+                <table class="tabla-datos">
+                    <thead>
+                        <tr>
+                            <th>Nombre Aspirante</th>
+                            <th>Negocio Propuesto</th>
+                            <th>Fecha Solicitud</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Carlos Ruiz</td>
+                            <td>Cafetería Artesanal</td>
+                            <td>08/10/2026</td>
+                            <td>
+                                <button class="btn-accion aceptar">Aprobar</button>
+                                <button class="btn-accion rechazar">Rechazar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- NUEVA SECCIÓN: CLIENTES (Oculta por defecto) -->
+    <div class="seccion-clientes oculto" id="seccion-clientes">
+        <h4>Gestión de Clientes</h4>
+        
+        <!-- Resumen rápido de clientes -->
+        <div class="clientes-stats">
+            <div class="caja-stat">
+                <span>Total Clientes</span>
+                <strong><?php echo $totalClientes ?? '120'; ?></strong>
+            </div>
+            <div class="caja-stat">
+                <span>Reservas Activas</span>
+                <strong class="alerta-num"><?php echo $totalReservasActivas ?? '24'; ?></strong>
+            </div>
+        </div>
+
+        <!-- Tabla de Datos de Clientes -->
+        <h5>Detalle de Actividad de Clientes</h5>
+        <div class="tabla-contenedor">
+            <table class="tabla-datos">
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Compra</th>
+                        <th>Reservación</th>
+                        <th>Tipo de Cancelación</th>
+                        <th>Reseñas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Ejemplo estático / Dinámico con PHP -->
+                    <tr>
+                        <td><strong>Ana Pérez</strong></td>
+                        <td>$1,200 MXN</td>
+                        <td>Hotel Boutique (Confirmada)</td>
+                        <td><span class="badge cancelacion-ninguna">Sin cancelaciones</span></td>
+                        <td>⭐⭐⭐⭐⭐ (Excelente)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Carlos Gómez</strong></td>
+                        <td>$850 MXN</td>
+                        <td>Tour Turístico (Pendiente)</td>
+                        <td><span class="badge cancelacion-tardia">Tardía</span></td>
+                        <td>⭐⭐⭐ (Regular)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+        <div class="recientes"></div>
+
+        <div class="registro">
+            <h4>Formulario Registro</h4>
+            <form action="" method="POST">
+                <!-- Datos del Usuario / Representante -->
+                <h5>Datos Personales</h5>
+                <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese Nombre" required>
+                <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese Apellido" required>
+                <input class="controls" type="text" name="telefono" id="telefono" placeholder="Ingrese Teléfono" required>
+                <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese Correo" required>
+                <input class="controls" type="password" name="password" id="password" placeholder="Ingrese Contraseña" required>
+
+                <!-- Estado de la Cuenta -->
+                <label for="estado">Estado del Registro:</label>
+                <select class="controls" name="estado" id="estado" required>
+                    <option value="pendiente" selected>Pendiente</option>
+                    <option value="activo">Activo</option>
+                    <option value="suspendido">Suspendido</option>
+                </select>
+
+                <!-- Datos del Negocio -->
+                <h5>Datos del Negocio</h5>
+                <input class="controls" type="text" name="nombre_comercial" id="nombre_comercial" placeholder="Nombre Comercial" required>
+                <input class="controls" type="text" name="nombre_fiscal" id="nombre_fiscal" placeholder="Nombre / Razón Fiscal">
+                <textarea class="controls" name="descripcion_negocio" id="descripcion_negocio" placeholder="Descripción del negocio" rows="3"></textarea>
+                <input class="controls" type="text" name="telefono_negocio" id="telefono_negocio" placeholder="Teléfono del Negocio">
+                <input class="controls" type="email" name="correo_negocio" id="correo_negocio" placeholder="Correo del Negocio">
+                <input class="controls" type="text" name="ubicacion" id="ubicacion" placeholder="Ubicación / Dirección">
+                <input class="controls" type="text" name="codigo_postal" id="codigo_postal" placeholder="Código Postal">
+                
+                <label for="horario_semana">Horario Semanal:</label>
+                <input class="controls" type="text" name="horario_semana" id="horario_semana" placeholder="Ej. Lunes a Viernes 09:00 - 18:00">
+                
+                <label for="horario_fin_semana">Horario Fin de Semana:</label>
+                <input class="controls" type="text" name="horario_fin_semana" id="horario_fin_semana" placeholder="Ej. Sábado y Domingo 10:00 - 14:00">
+
+                <input class="botons" type="submit" value="Registrar">
+            </form>
+        </div>
+    </article>
+
+    <!-- Archivo JS externo cargado -->
+    <script src="/js/script.js"></script>
+</body>
+</html>

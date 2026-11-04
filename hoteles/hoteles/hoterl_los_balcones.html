@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HotelLosBalcones</title>
+    <link rel="stylesheet" href="/hoteles/hoteles/hotel_balcones.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container-hero">
+            <div class="container hero">
+                <div class="customer-support">
+                    <i class="fa-solid fa-headset"></i>
+                    <div class="content-customer-support">
+                        <span class="text">Soporte al cliente</span>
+                        <span class="number">123-456-7890</span>
+                        <span class="number">987-654-3210</span> <!-- Nuevo número agregado -->
+                    </div>
+                </div>
+                <div class="container-logo">
+                    <h1 class="logo"><a href="/Index.html">Hoteles</a></h1>
+                </div>
+                <div class="container-user">
+                </div>
+            </div>
+        </div>
+        <div class="container-navbar">
+            <nav class="navbar container">
+                <i class="fa-solid fa-bars"></i>
+                <ul class="menu">
+                    <li><a href="/hoteles/hoteles.html">Volver</a></li>
+                    <li><a href="/index.html">Inicio</a></li>
+                    <li><a href="/restaurantes/restauranteborrador.html">Restaurantes</a></li>
+                    <li><a href="/tiendas/tiendas.html">Tiendas</a></li>
+                    <li><a href="/lugares turisticos/lugaresturisticos.html">Lugares Turísticos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hotel-details">
+            <h1>hotel los balcones </h1>
+            <h2>Detalles del hotel </h2>
+
+            <p>
+                Este sencillo hotel económico se encuentra en una calle frondosa, cerca de tiendas y restaurantes, a 7 km del Museo del Vino y a 26 km de la carretera 40.
+                
+                Se puede acceder a las habitaciones discretas y decoradas con muebles de madera de estilo vintage por pasillos exteriores. Todas cuentan con Wi-Fi gratis y TV. Algunas también incluyen balcón falso</p>
+            <img src="https://lh3.googleusercontent.com/p/AF1QipMC_1W3MAJ3e483NamhsUL4Pk-YEQLy6GLs-OWG=s1360-w1360-h1020" alt="Hotel Hacienda Los Portales">
+            
+            <h2>Formulario de Reserva</h2>
+            <form id="reserva-formulario" action="reservar.php" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="fecha-entrada">Fecha de entrada:</label>
+                <input type="text" id="fecha-entrada" name="fecha_entrada" required>
+                
+                <label for="fecha-salida">Fecha de salida:</label>
+                <input type="text" id="fecha-salida" name="fecha_salida" required>
+                
+                <label for="habitacion">Tipo de habitación:</label>
+                <select id="habitacion" name="habitacion">
+                    <option value="sencilla">Sencilla</option>
+                    <option value="doble">Doble</option>
+                    <option value="suite">Suite</option>
+                </select>
+                
+                <button type="submit">Reservar</button>
+            </form>
+
+            <section class="hotel-info">
+                <h2>Información del Hotel</h2>
+                <p>Hotel Los Balcones
+                  opiniones en Google
+                  Hotel de 3 estrellas
+                  Reservar una habitación
+                  Dirección: Oscar Flores Tapia 412, Fraccionamiento del Marqués, 27980 Parras de la Fuente, Coah.
+                </p>
+
+                <h3>Contacto</h3>
+                
+                <p>Teléfono: 842 422 4402</p>
+               
+
+                <h3>Servicios</h3>
+                <div class="hotel-details">
+                    <h2>Wi-Fi gratis    Estacionamiento gratuito    Aire acondicionado    Apto para niños    Desayuno incluido    Piscina</h2>
+                    <div class="rating">
+                        <span>4.5</span>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                         
+                        </div>
+                    </div>
+                    <div class="info-section">
+                        <i class="fas fa-bed"></i>
+                        <div>
+                            <h2>Habitaciones</h2>
+                            <p>Disfruta de nuestras modernas y cómodas habitaciones, equipadas con todas las comodidades necesarias para una estancia placentera.</p>
+                        </div>
+                    </div>
+                    <div class="info-section">
+                        <i class="fas fa-wifi"></i>
+                        <div>
+                            <h2>Wi-Fi Gratis</h2>
+                            <p>Conéctate a nuestra red Wi-Fi de alta velocidad sin costo adicional durante tu estancia.</p>
+                        </div>
+                    </div>
+                    <div class="info-section">
+                        <i class="fas fa-swimming-pool"></i>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <section class="hotel-reviews">
+                <h2>Opiniones de los Huéspedes</h2>
+                <div class="review">
+                    <div class="review-header">
+                        <i class="fa-solid fa-user"></i>
+                        <span class="reviewer-name">Juan Pérez</span>
+                        <span class="review-date">15 de Julio 2024</span>
+                    </div>
+                    <div class="review-body">
+                        <p>El Hotel Hacienda Los Portales es simplemente impresionante. La mezcla de historia y lujo crea un ambiente único. El servicio fue excelente y la comida deliciosa. ¡Definitivamente recomendaría este hotel!</p>
+                        <div class="review-rating">
+                            <span>Calificación: </span>
+                            <span class="stars">★★★★☆</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="review-header">
+                        <i class="fa-solid fa-user"></i>
+                        <span class="reviewer-name">María López</span>
+                        <span class="review-date">10 de Julio 2024</span>
+                    </div>
+                    <div class="review-body">
+                        <p>Una experiencia maravillosa. El personal es muy amable y las instalaciones están en perfectas condiciones. El hotel está ubicado en una zona tranquila, ideal para descansar. ¡Recomiendo encarecidamente!</p>
+                        <div class="review-rating">
+                            <span>Calificación: </span>
+                            <span class="stars">★★★★★</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review">
+                    <div class="review-header">
+                        <i class="fa-solid fa-user"></i>
+                        <span class="reviewer-name">Carlos Gómez</span>
+                        <span class="review-date">05 de Julio 2024</span>
+                    </div>
+                    <div class="review-body">
+                        <p>El hotel es bonito, pero encontré que el servicio de limpieza podría mejorar. Las habitaciones son cómodas y bien equipadas, pero el restaurante podría ofrecer más opciones para el desayuno.</p>
+                        <div class="review-rating">
+                            <span>Calificación: </span>
+                            <span class="stars">★★★☆☆</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nuevo formulario de comentarios -->
+                <div class="comment-form">
+                    <h3>Deja tu comentario</h3>
+                    <form id="comment-form" action="#" method="post">
+                        <label for="nombre-comentario">Nombre:</label>
+                        <input type="text" id="nombre-comentario" name="nombre-comentario" required>
+                        
+                        <label for="comentario">Comentario:</label>
+                        <textarea id="comentario" name="comentario" rows="4" required></textarea>
+                        
+                        <button type="submit">Enviar comentario</button>
+                    </form>
+                </div>
+            </section>
+            
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container container-footer">
+            <div class="menu-footer">
+                <div class="contact-info">
+                    <p class="title-footer">Información de Contacto</p>
+                    <ul>
+                        <li>
+                            Dirección: 71 Pennington Lane Vernon Rockville, CT
+                            06066
+                        </li>
+                        <li>Teléfono: 123-456-7890</li>
+                        <li>Fax: 55555300</li>
+                        <li>EmaiL: baristas@support.com</li>
+                    </ul>
+                    <div class="social-icons">
+                        <span class="facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </span>
+                        <span class="twitter">
+                            <i class="fa-brands fa-twitter"></i>
+                        </span>
+                        <span class="youtube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </span>
+                        <span class="pinterest">
+                            <i class="fa-brands fa-pinterest-p"></i>
+                        </span>
+                        <span class="instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="information">
+                    <p class="title-footer">Información</p>
+                    <ul>
+                        <li><a href="#">Acerca de Nosotros</a></li>
+                        <li><a href="#">Información Delivery</a></li>
+                        <li><a href="#">Politicas de Privacidad</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Contactános</a></li>
+                    </ul>
+                </div>
+
+                <div class="my-account">
+                    <p class="title-footer">Mi cuenta</p>
+
+                    <ul>
+                        <li><a href="#">Mi cuenta</a></li>
+                        <li><a href="#">Historial de ordenes</a></li>
+                        <li><a href="#">Lista de deseos</a></li>
+                        <li><a href="#">Boletín</a></li>
+                        <li><a href="#">Reembolsos</a></li>
+                    </ul>
+                </div>
+
+                <div class="newsletter">
+                    <p class="title-footer">Boletín informativo</p>
+
+                    <div class="content">
+                        <p>
+                            Suscríbete a nuestros boletines ahora y mantente al
+                            día con nuevas colecciones y ofertas exclusivas.
+                        </p>
+                        <input type="email" placeholder="Ingresa el correo aquí...">
+                        <button>Suscríbete</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>
+                    Desarrollado por Programación para el mundo &copy; 2022
+                </p>
+
+                <img src="img/payment.png" alt="Pagos">
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        $(function() {
+            // Manejar envío del formulario de comentarios
+            $('#comment-form').submit(function(event) {
+                event.preventDefault(); // Prevenir el envío por defecto
+
+                // Obtener datos del formulario
+                var nombre = $('#nombre-comentario').val();
+                var comentario = $('#comentario').val();
+
+                // Crear nuevo comentario
+                var newReview = '<div class="review">' +
+                                    '<div class="review-header">' +
+                                        '<i class="fa-solid fa-user"></i>' +
+                                        '<span class="reviewer-name">' + nombre + '</span>' +
+                                        '<span class="review-date">' + getCurrentDate() + '</span>' +
+                                    '</div>' +
+                                    '<div class="review-body">' +
+                                        '<p>' + comentario + '</p>' +
+                                    '</div>' +
+                                '</div>';
+
+                // Agregar el nuevo comentario al inicio de la lista de opiniones
+                $('.hotel-reviews').prepend(newReview);
+
+                // Limpiar campos del formulario
+                $('#nombre-comentario').val('');
+                $('#comentario').val('');
+            });
+
+            // Función para obtener la fecha actual en formato deseado
+            function getCurrentDate() {
+                var currentDate = new Date();
+                var day = currentDate.getDate();
+                var month = currentDate.getMonth() + 1; // Los meses van de 0 a 11
+                var year = currentDate.getFullYear();
+
+                return day + ' de ' + getMonthName(month) + ' ' + year;
+            }
+
+            // Función para obtener el nombre del mes
+            function getMonthName(month) {
+                var months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                              'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+                return months[month - 1];
+            }
+        });
+    </script>
+</body>
+</html>

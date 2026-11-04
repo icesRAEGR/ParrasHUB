@@ -1,0 +1,220 @@
+.carousel-img {
+    height: 500px;
+    object-fit: cover;
+}
+
+.carousel-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-img {
+    height: 90px;
+}
+
+.carousel-header h1 {
+    font-size: 3rem;
+    margin-left: 10px;
+    flex-grow: 1;
+}
+
+.carousel-header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.carousel-header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.carousel-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    transform: translateY(-50%);
+    padding: 0 10%;
+}
+
+.carousel-buttons .btn {
+    margin: 5px;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    transition: transform 0.3s ease, background-color 0.3s ease, backdrop-filter 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+/* Animation on hover */
+.carousel-buttons .btn:hover {
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.left-buttons,
+.right-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Opcional: estilos personalizados para los botones de navegación en el encabezado */
+.nav-buttons .btn {
+    margin: 5px;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    transition: transform 0.3s ease, background-color 0.3s ease, backdrop-filter 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.nav-buttons .btn:hover {
+    background-color: #365371;
+    color: white;
+}
+
+
+
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+}
+
+.container-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.menu-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.menu-footer > div {
+    flex: 1;
+    min-width: 200px;
+    margin: 20px;
+}
+
+.title-footer {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.contact-info ul,
+.information ul,
+.my-account ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-info li,
+.information li,
+.my-account li {
+    margin-bottom: 10px;
+}
+
+.contact-info li a,
+.information li a,
+.my-account li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info li a:hover,
+.information li a:hover,
+.my-account li a:hover {
+    color: #ffd700;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons span {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icons i {
+    font-size: 20px;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.social-icons i:hover {
+    color: #ffd700;
+}
+
+.newsletter .content {
+    margin-top: 20px;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    width: calc(100% - 20px);
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.newsletter button {
+    padding: 10px 20px;
+    background-color: #ffd700;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter button:hover {
+    background-color: #fff;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.copyright p {
+    margin: 0;
+}
+
+.copyright img {
+    margin-top: 10px;
+    max-width: 100%;
+}

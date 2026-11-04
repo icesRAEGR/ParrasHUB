@@ -1,0 +1,159 @@
+/* Reset y fuente */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f8e8d1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Encabezado */
+header {
+    width: 100%;
+    background: #22333B; /* Nuevo color */
+    text-align: center;
+    padding: 20px;
+    color: white;
+    font-size: 24px;
+}
+
+.boton {
+    background: #fff;
+    color: #22333B; /* Nuevo color */
+    padding: 10px 20px;
+    border: 2px solid #22333B; /* Nuevo color */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.boton:hover {
+    background: #22333B; /* Nuevo color */
+    color: #fff;
+}
+
+/* Contenedor de carrito */
+.carrito {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    text-align: center;
+    width: 90%; /* Ajuste para móviles */
+    max-width: 800px; /* Limita el ancho máximo */
+}
+
+.carrito h2 {
+    color: #22333B; /* Nuevo color */
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #22333B; /* Nuevo color */
+    color: white;
+}
+
+/* Pie de página */
+.pie-pagina {
+    background: #22333B; /* Nuevo color */
+    color: white;
+    padding: 20px 0;
+    width: 100%;
+    text-align: center;
+}
+
+.contenedor-piepagina {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: auto;
+}
+
+.info h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.redes-sociales a {
+    font-size: 24px;
+    margin: 5px;
+    color: white;
+    transition: 0.3s;
+}
+
+.redes-sociales a:hover {
+    color: #ffcc80; /* Color de hover para contrastar con el fondo oscuro */
+}
+
+/* Media Queries para móviles */
+@media (max-width: 768px) {
+    header {
+        font-size: 20px; /* Reduce el tamaño del texto en móviles */
+        padding: 15px;
+    }
+
+    .carrito {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    table {
+        font-size: 14px; /* Reduce el tamaño de la fuente en la tabla */
+    }
+
+    th, td {
+        padding: 8px; /* Reduce el padding en celdas */
+    }
+
+    .contenedor-piepagina {
+        flex-direction: column; /* Cambia a una columna en móviles */
+        align-items: center;
+    }
+
+    .info h3 {
+        font-size: 16px; /* Reduce el tamaño del texto en el pie de página */
+    }
+
+    .redes-sociales a {
+        font-size: 20px; /* Reduce el tamaño de los íconos de redes sociales */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 18px; /* Ajuste adicional para pantallas muy pequeñas */
+    }
+
+    .boton {
+        padding: 8px 16px; /* Reduce el tamaño del botón */
+        font-size: 14px;
+    }
+
+    .carrito h2 {
+        font-size: 20px; /* Reduce el tamaño del título del carrito */
+    }
+
+    table {
+        font-size: 12px; /* Ajuste adicional para la tabla */
+    }
+
+    th, td {
+        padding: 6px; /* Ajuste adicional para celdas */
+    }
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="parametric_calc.css">
+<title>Calculadora de Ecuaciones Paramétricas</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjs@11.8.0/lib/browser/math.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body {
+    font-family: Arial;
+    margin: 20px;
+}
+input {
+    width: 280px;
+    margin-bottom: 10px;
+}
+table {
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid black;
+    padding: 6px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Calculadora de Ecuaciones Paramétricas</h1>
+
+<label>x(t):</label><br>
+<input id="fx" type="text" value="5*cos(t)"><br>
+
+<label>y(t):</label><br>
+<input id="fy" type="text" value="3*sin(t)"><br>
+
+<label>t inicio:</label>
+<input id="t_inicio" type="number" step="any" value="0">
+
+<label>t fin:</label>
+<input id="t_fin" type="number" step="any" value="6.28">
+
+<label>paso:</label>
+<input id="paso" type="number" step="any" value="0.1"><br><br>
+
+<button onclick="calcular()">Generar Gráfica</button>
+
+<hr>
+
+<h2>Tabla de valores</h2>
+<table id="tabla">
+    <tr>
+        <th>t</th>
+        <th>x(t)</th>
+        <th>y(t)</th>
+    </tr>
+</table>
+
+<h2>Gráfica paramétrica</h2>
+<canvas id="grafica" width="600" height="400"></canvas>
+
+<script>
+let grafica = null;
+
+function calcular() {
+    const fx = document.getElementById("fx").value;
+    const fy = document.getElementById("fy").value;
+
+    const t_inicio = parseFloat(document.getElementById("t_inicio").value);
+    const t_fin = parseFloat(document.getElementById("t_fin").value);
+    const paso = parseFloat(document.getElementById("paso").value);
+
+    // limpiar tabla
+    const tabla = document.getElementById("tabla");
+    tabla.innerHTML = `
+        <tr>
+            <th>t</th><th>x(t)</th><th>y(t)</th>
+        </tr>
+    `;
+
+    const puntos = [];
+
+    const parser = math.parser();
+
+    for (let t = t_inicio; t <= t_fin; t += paso) {
+        parser.set("t", t);
+
+        let x = parser.evaluate(fx);
+        let y = parser.evaluate(fy);
+
+        puntos.push({x, y});
+
+        tabla.innerHTML += `
+            <tr>
+                <td>${t.toFixed(3)}</td>
+                <td>${x.toFixed(5)}</td>
+                <td>${y.toFixed(5)}</td>
+            </tr>
+        `;
+    }
+
+    // graficar
+    if (grafica !== null) grafica.destroy();
+
+    grafica = new Chart(document.getElementById("grafica"), {
+        type: "scatter",
+        data: {
+            datasets: [{
+                label: "Curva Paramétrica",
+                data: puntos,
+                borderWidth: 2,
+                showLine: true
+            }]
+        },
+        options: {
+            scales: {
+                x: { type: "linear", position: "bottom" },
+                y: { type: "linear" }
+            }
+        }
+    });
+}
+</script>
+
+</body>
+</html>

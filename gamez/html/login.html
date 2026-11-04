@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login y Register - MagtimusPro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <header>
+        <button id="button-menu" class="button-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <a href="/index.html"><img src="/img/logocircular.png" alt="logo"></a>
+        <div class="menu">
+            <a href="/html/campechanas.html">Campechanaz</a>
+            <a href="/html/PAN.html">Pan</a>
+            <a href="/html/Dulces Regionales.html">Dulces</a>
+        </div>
+    </header>    
+        <main>
+            <div class="contenedor__todo">
+                <div class="caja__trasera">
+                    <div class="caja__trasera-login">
+                        <h3>¿Ya tienes una cuenta?</h3>
+                        <p>Inicia sesión para entrar en la página</p>
+                        <button id="btn__iniciar-sesion">Iniciar Sesión</button>
+                    </div>
+                    <div class="caja__trasera-register">
+                        <h3>¿Aún no tienes una cuenta?</h3>
+                        <p>Regístrate para que puedas iniciar sesión</p>
+                        <button id="btn__registrarse">Regístrarse</button>
+                    </div>
+                </div>
+
+                <!--Formulario de Login y registro-->
+                <div class="contenedor__login-register">
+                    <!--Login-->
+                    <form action="" class="formulario__login">
+                        <h2>Iniciar Sesión</h2>
+                        <input type="text" placeholder="Correo Electronico">
+                        <input type="password" placeholder="Contraseña">
+                        <button>Entrar</button>
+                    </form>
+
+                    <!--Register-->
+                    <form action="/gamez/php/registro.php" method="POST" class="formulario__register">
+                        <h2>Regístrarse</h2>
+                        <input type="text" name="nombre" placeholder="Nombre completo" required>
+                        <input type="email" name="correo" placeholder="Correo Electrónico" required>
+                        <input type="text" name="usuario" placeholder="Usuario" required>
+                        <input type="password" name="contrasena" placeholder="Contraseña" required>
+                        <button type="submit">Regístrarse</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="copy">
+                <p>Nuestro negocio esta dedicado a la venta de campechanas, dulces regionales y pan dulce, 
+                    con la mejor calidad para nuestros clientes, esperamos su visita en nuestro horario de venta.</p>
+            </div>
+            <div class="redes">
+                <a href="https://www.facebook.com/share/1BFsLHPNRc/">
+                    <img src="/img/facebook.png" alt=""><p>Facebook</p>
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=8421122636">
+                    <img src="/img/whatsapp.png" alt=""><p>WhatsApp</p>
+                </a>
+            </div>
+            <div class="informacion">
+                <p>&copy; 2025 Todos los derechos reservados</p>
+                <a href="html/Información.html">Más información</a>
+            </div>
+        </footer>
+        <script src="/js/login.js"></script>
+        <script src="/js/loginhamburguesa.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN</title>
+    <link rel="stylesheet" href="/css/crud.css">
+</head>
+<body>
+    <header>
+        <button id="button-menu" class="button-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <a href="/index.html"><img src="/img/logocircular.png" alt="logo"></a>
+        <div class="menu">
+            <a href="/html/campechanas.html">Campechanaz</a>
+            <a href="/html/PAN.html">Pan</a>
+            <a href="/html/Dulces Regionales.html">Dulces</a>
+        </div>
+    </header>
+    <main>
+        <h2>Registra tus productos</h2>
+        <div class="formulario">
+            <form action="/gamez/php/procesar_formulario.php" method="POST">
+                <input type="hidden" id="producto_id" name="producto_id"> <!-- Campo oculto para el ID -->
+
+                <label for="nombre">Nombre del Producto:</label>
+                <input type="text" id="nombre" name="nombre">
+
+                <label for="codigo">Código:</label>
+                <input type="text" id="codigo" name="codigo">
+
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad">
+
+                <label for="precio">Precio:</label>
+                <input type="number" step="0.01" id="precio" name="precio">
+
+                <button type="submit" name="accion" value="registrar">Registrar</button>
+                <button type="submit" name="accion" value="buscar" onclick="limpiarCampos()">Buscar</button>
+                <button type="submit" name="accion" value="editar">Editar</button>
+                <button type="submit" name="accion" value="eliminar">Eliminar</button>
+            </form>
+        </div>
+
+        <script>
+        function limpiarCampos() {
+            document.getElementById("cantidad").removeAttribute("required");
+            document.getElementById("precio").removeAttribute("required");
+        }
+        </script>
+    </main>
+    <footer>
+        <div class="copy">
+            <p>Nuestro negocio esta dedicado a la venta de campechanas, dulces regionales y pan dulce, 
+                con la mejor calidad para nuestros clientes, esperamos su visita en nuestro horario de venta.</p>
+        </div>
+        <div class="redes">
+            <a href="https://www.facebook.com/share/1BFsLHPNRc/">
+                <img src="/img/facebook.png" alt=""><p>Facebook</p>
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=8421122636">
+                <img src="/img/whatsapp.png" alt=""><p>WhatsApp</p>
+            </a>
+        </div>
+        <div class="informacion">
+            <p>&copy; 2025 Todos los derechos reservados</p>
+            <a href="html/Información.html">Más información</a>
+        </div>
+    </footer>
+    <script src="/js/loginhamburguesa.js"></script>
+    <script>
+        document.querySelector("form").addEventListener("submit", function(event) {
+            if (event.submitter.value === "buscar") {
+                event.preventDefault(); // Evitar que el formulario se envíe
+                let codigo = document.getElementById("codigo").value;
+        
+                fetch("/gamez/php/procesar_formulario.php", {
+                    method: "POST",
+                    body: new URLSearchParams({ codigo: codigo, accion: "buscar" }),
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data) {
+                        document.getElementById("producto_id").value = data.id;
+                        document.getElementById("nombre").value = data.nombre;
+                        document.getElementById("cantidad").value = data.cantidad;
+                        document.getElementById("precio").value = data.precio;
+                        document.getElementById("codigo").value = data.codigo;
+                    } else {
+                        alert("Producto no encontrado");
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+            }
+        });
+        </script>
+</body>
+</html>

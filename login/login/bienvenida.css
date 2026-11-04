@@ -1,0 +1,109 @@
+/* Estilo para la sección contenedora con Flexbox */
+section.productosdb {
+    display: flex;               /* Definimos la sección como un contenedor flex */
+    justify-content: space-between; /* Distribuye los elementos con espacio entre ellos */
+    align-items: center;          /* Alinea los elementos verticalmente al centro */
+    padding: 20px;                /* Agrega espacio interno alrededor de los elementos */
+    background-color: #f4f4f4;    /* Color de fondo suave */
+    border-radius: 8px;           /* Bordes redondeados para la sección */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 100%;                  /* El contenedor ocupa el 100% del ancho disponible */
+}
+
+/* Estilo para el contenedor de productos */
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 20px;
+}
+
+.reserva {
+    border: 1px solid #ddd;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    width: 300px;
+}
+
+.reserva p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+.reservasdb {
+    padding: 20px;
+    background-color: #f0f8ff;
+}
+
+.reservas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.reserva {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.reserva p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #333;
+}
+/* Estilo para el botón de salir */
+button.salir {
+    padding: 10px 20px;
+    background-color: #e74c3c;    /* Rojo brillante */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efecto al pasar el ratón sobre el botón */
+button.salir:hover {
+    background-color: #c0392b;    /* Rojo más oscuro */
+    transform: scale(1.05);        /* Le da un pequeño efecto de ampliación */
+}
+
+/* Estilos para los productos dentro de .productos */
+.productos > div {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db;    /* Azul claro */
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Respuesta en dispositivos móviles */
+@media (max-width: 600px) {
+    section.productosdb {
+        flex-direction: column;      /* Disposición vertical en pantallas pequeñas */
+        align-items: flex-start;     /* Alineamos los elementos al inicio */
+        padding: 15px;               /* Reducimos un poco el padding */
+    }
+
+    .productos {
+        flex-direction: column;      /* Los productos se alinean en columna */
+        gap: 10px;                   /* Reducimos el espacio entre productos */
+    }
+
+    button.salir {
+        margin-top: 10px;            /* Espacio entre el botón y los productos */
+        width: 100%;                 /* El botón ocupa todo el ancho */
+    }
+}

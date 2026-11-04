@@ -1,0 +1,428 @@
+body {
+    background-image: url('https://nuvehotel.com/wp-content/uploads/2022/04/7A5A9606.jpg');/* Ruta de la imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+    background-repeat: no-repeat; /* No repetir la imagen */
+    background-position: center; /* Centra la imagen */
+    font-family: 'Arial', sans-serif; /* Fuente moderna */
+}
+
+/* Estilos para el header */
+header {
+    background-color: #dbc9ae; /* Color de fondo del header */
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* ********************************** */
+/*               GALLERY              */
+/* ********************************** */
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(2, 30rem);
+	gap: 1.5rem;
+	margin-bottom: 3rem;
+}
+
+.gallery img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.gallery-img-3 {
+	grid-column: 2/4;
+	grid-row: 1/3;
+}
+/* Contenedor general */
+.container-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Soporte al cliente */
+.customer-support {
+    display: flex;
+    align-items: center;
+}
+
+.customer-support i {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #007bff;
+}
+
+.content-customer-support {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-customer-support .text {
+    font-weight: bold;
+    font-size: 14px;
+    color: #000000;
+}
+
+.content-customer-support .number {
+    font-size: 12px;
+    color: #000000;
+}
+
+/* titulo del hotel */
+.container-titulo .titulo a {
+    text-decoration: none;
+    font-size: 50px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.container-titulo .titulo a:hover {
+    color: #334cc6;
+}
+
+/* Estilos para el menú de navegación */
+.container-navbar {
+    background-color: #c7a17a; 
+    padding: 10px 0;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.navbar i {
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* Oculto en pantallas grandes */
+    color: white;
+}
+
+/* Estilos para la lista del menú */
+.menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin-left: 20px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.menu li a:hover {
+    color: #f8f9fa;
+}
+
+/* Adaptación a pantallas pequeñas */
+@media (max-width: 768px) {
+    .navbar i {
+        display: block; /* Mostrar icono de menú en pantallas pequeñas */
+    }
+
+    .menu {
+        display: none; /* Ocultar menú en pantallas pequeñas */
+        flex-direction: column;
+        background-color: #007bff;
+        width: 100%;
+        position: absolute;
+        top: 50px;
+        left: 0;
+    }
+
+    .menu.active {
+        display: flex; /* Mostrar menú al hacer clic en el ícono */
+    }
+
+    .menu li {
+        margin: 10px 0;
+        text-align: center;
+    }
+}
+/* Regisrto*/
+
+
+.form-group h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    color: rgba(255, 255, 255, 0.9); /* Texto blanco */
+    font-size: 2.5rem; /* Tamaño de fuente grande */
+    text-transform: uppercase; /* Texto en mayúsculas */
+}
+
+#form {
+    background-color: rgba(0, 0, 0, 0.7); /* Negro con 70% de opacidad (30% transparente) */
+    color: rgba(255, 255, 255, 0.9); /* Texto blanco con alta opacidad */
+    height: auto; /* Altura automática para contenido dinámico */
+    width: 90%; /* Ancho responsivo */
+    max-width: 700px; /* Ancho máximo */
+    margin: auto;
+    padding: 30px; /* Espaciado adicional */
+    border-radius: 15px; /* Bordes redondeados más suaves */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.753); /* Sombra más pronunciada */
+    
+}
+
+#input, #input2, #input3, #input4, #input6 {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo blanco suave y semi-transparente */
+    color: rgba(255, 255, 255, 0.9); /* Texto blanco */
+    padding: 15px; /* Espaciado interno aumentado */
+    border-radius: 5px;
+    margin-bottom: 15px; /* Espaciado entre campos */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde blanco suave */
+    transition: border-color 0.3s; /* Transición suave */
+}
+
+#input:focus, #input2:focus, #input3:focus, #input4:focus, #input6:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.8); /* Borde más visible al enfocar */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.6); /* Sombra al enfocar */
+}
+
+button {
+    background-color: rgba(0, 0, 0, 0.5); /* Negro con 50% de opacidad */
+
+    color: rgba(255, 255, 255, 0.9); /* Texto blanco */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    font-size: 1rem; /* Tamaño de fuente */
+    transition: background-color 0.3s, transform 0.3s; /* Transición suave */
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Cambio de color al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+
+
+
+/* Contenedor del mapa y los comentarios */
+.mapa-comentarios-container {
+    display: flex; 
+    justify-content: space-between; 
+    max-width: 1200px;
+    margin: auto; 
+    gap: 20px; 
+    padding: 20px 0; 
+}
+
+
+
+#comments {
+    width: 50%; /* La sección de comentarios ocupa el 30% del contenedor */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 69vh; 
+    overflow-y: auto; 
+}
+
+
+
+/* Estilos del formulario y los comentarios */
+#comment-form {
+    margin-bottom: 20px;
+}
+
+#comment-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#comment-form input[type="text"],
+#comment-form input[type="email"],
+#comment-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+#comment-form textarea {
+    resize: vertical;
+}
+
+#comment-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#comment-form button:hover {
+    background-color: #45a049;
+}
+
+#comment-list {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Estilo para cada comentario individual */
+.comment {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.comment p {
+    margin: 0;
+    padding: 0;
+}
+
+.comment .author {
+    font-weight: bold;
+}
+
+.comment .date {
+    font-size: 12px;
+    color: #888;
+}
+#rating {
+    margin: 10px 0;
+}
+
+.star {
+    font-size: 24px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.star.selected {
+    color: gold;
+}
+
+
+
+
+/* Estilos del Footer */
+.footer {
+    background-color: #dbc9ae;
+    color: white;
+    padding: 50px 0;
+}
+
+.footer a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #000000;
+}
+
+.container-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Estilos para las secciones del Footer */
+.menu-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 30px;
+}
+
+.contact-info, .information, .my-account, .newsletter {
+    flex-basis: 24%;
+}
+
+.title-footer {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #000000;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer ul li a:hover {
+    color: #ffdb5c;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons span {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icons i {
+    color: #5cb6ff;
+    font-size: 20px;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    border: none;
+    width: calc(100% - 110px);
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.newsletter button {
+    background-color: #f0ad4e;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.newsletter button:hover {
+    background-color: #ffdb5c;
+}

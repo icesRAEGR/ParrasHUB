@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago</title>
+    <script src="https://www.paypal.com/sdk/js?client-id=TU_CLIENT_ID&currency=USD"></script>
+    <link rel="stylesheet" href="/gamez/css/pago.css"> <!-- Asegúrate de que la ruta sea correcta -->
+    <link rel="stylesheet" href="/gamez/css/stylo.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* Estilos para los contenedores */
+        #metodos-pago, #confirmar-compra {
+            display: none; /* Ocultos por defecto */
+            margin-top: 20px;
+            text-align: center;
+        }
+        #metodos-pago img {
+            width: 150px; /* Tamaño de las imágenes */
+            margin-bottom: 10px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        #metodos-pago img.selected {
+            border: 2px solid blue; /* Resaltar método seleccionado */
+        }
+        #confirmar-compra button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header class="main-header">
+        <a class="main-logo" href="/index.html">
+            <img src="/img/logocircular.png" alt="Logo de la empresa">
+        </a>
+        <nav class="nav-links">
+            <a class="link-item" href="/html/campechanas.html">Campechanas</a>
+            <a class="link-item" href="/html/PAN.html">Pan</a>
+            <a class="link-item" href="/html/Dulces Regionales.html">Dulces Regionales</a>
+            <a class="link-item" href="/html/Información.html">Información</a>
+        </nav>
+        <button id="button-menu" class="button-menu" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Contenedor principal -->
+    <main class="container">
+        <!-- Sección de productos en el carrito -->
+        <section class="carrito">
+            <h2>Carrito de Compras</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Subtotal</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody id="carrito-body"></tbody>
+            </table>
+            <h2>Total: $<span id="total">0.00</span></h2>
+            
+            <!-- Botón de Método de Pago -->
+            <button class="boton" onclick="mostrarMetodosDePago()">Método de Pago</button>
+            
+            <!-- Contenedor de métodos de pago -->
+            <div id="metodos-pago">
+                <h3>Elige un método de pago:</h3>
+                <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png" 
+                     alt="PayPal" 
+                     onclick="seleccionarMetodo('paypal')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/1200px-MasterCard_Logo.svg.png" 
+                     alt="Tarjeta de Crédito" 
+                     onclick="seleccionarMetodo('tarjeta')">
+            </div>
+
+            <!-- Botón de Confirmar Compra -->
+            <div id="confirmar-compra">
+                <button class="boton" onclick="confirmarCompra()">Confirmar Compra</button>
+            </div>
+        </section>
+
+        <!-- Sección de información adicional -->
+        <section class="info-adicional">
+            <p></p>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="copy">
+            <p>Nuestro negocio está dedicado a la venta de campechanas, dulces regionales y pan dulce, 
+                con la mejor calidad para nuestros clientes. Esperamos su visita en nuestro horario de venta.</p>
+        </div>
+        <div class="redes">
+            <a href="https://www.facebook.com/share/1BFsLHPNRc/">
+                <img src="/img/facebook.png" alt="Facebook">
+                <p>Facebook</p>
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=8421122636">
+                <img src="/img/whatsapp.png" alt="WhatsApp">
+                <p>WhatsApp</p>
+            </a>
+        </div>
+        <div class="informacion">
+            <p>&copy; 2025 Todos los derechos reservados</p>
+            <a href="html/Información.html">Más información</a>
+        </div>
+    </footer>
+
+    <script src="/carrito/js/paypal.js"></script>
+    <script>
+        // Variable para almacenar el método de pago seleccionado
+        let metodoSeleccionado = null;
+
+        // Función para mostrar los métodos de pago
+        function mostrarMetodosDePago() {
+            const metodosPago = document.getElementById("metodos-pago");
+            metodosPago.style.display = "block"; // Mostrar métodos de pago
+        }
+
+        // Función para seleccionar un método de pago
+        function seleccionarMetodo(metodo) {
+            metodoSeleccionado = metodo; // Guardar el método seleccionado
+
+            // Remover la clase 'selected' de todas las imágenes
+            const imagenes = document.querySelectorAll("#metodos-pago img");
+            imagenes.forEach(img => img.classList.remove("selected"));
+
+            // Resaltar la imagen seleccionada
+            const imagenSeleccionada = document.querySelector(`#metodos-pago img[alt="${metodo === 'paypal' ? 'PayPal' : 'Tarjeta de Crédito'}"]`);
+            imagenSeleccionada.classList.add("selected");
+
+            // Mostrar el botón de confirmar compra
+            const confirmarCompra = document.getElementById("confirmar-compra");
+            confirmarCompra.style.display = "block";
+        }
+
+        // Función para confirmar la compra
+        function confirmarCompra() {
+            if (metodoSeleccionado) {
+                alert(`Compra confirmada con ${metodoSeleccionado === 'paypal' ? 'PayPal' : 'Tarjeta de Crédito'}`);
+                // Aquí puedes agregar la lógica para procesar la compra
+            } else {
+                alert("Por favor, selecciona un método de pago.");
+            }
+        }
+    </script>
+</body>
+</html>
